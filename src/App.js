@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Mapir from "mapir-react-component";
+import CustomSearch from "./components/CustomSearch";
+import { Map } from "./services/GetMap";
+import { connect } from "react-redux";
 
-function App() {
+const App = ({location}) => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="position-fixed w-100 h-100" style={{top: '0', left: '0'}}>
+        <Mapir center={location ? [location.longitude, location.latitude] : [51.42047, 35.729054]} Map={Map} >
+          {location &&
+            <Mapir.Marker coordinates={[location.longitude, location.latitude]} anchor="bottom" />
+
+          }
+        </Mapir>
+      </div>
+        <CustomSearch/>
+
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => ({
+  location: state.Locations.location
+})
+
+export default connect(mapStateToProps)(App);

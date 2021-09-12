@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: pink;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+}
+
+.search-container {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: white;
+  padding: .5rem;
+  border-radius: 5px;
+  width: 17rem;
+}
+
+.search-feild {
+  border: none;
+  background: transparent;
+  padding-right: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.edit-btn, .delete-btn {
+  background: transparent;
+  border: none;
+  margin: 0 .2rem;
+}
+/*# sourceMappingURL=style.css.map */
