@@ -1,8 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import Mapir from "mapir-react-component";
 import CustomSearch from "./components/CustomSearch";
 import { Map } from "./services/GetMap";
-import { connect } from "react-redux";
 import marker from "./assets/img/marker.png"
 
 const App = ({location}) => {

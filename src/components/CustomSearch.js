@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux';
 import { Search } from "@material-ui/icons";
 import { getLocations } from '../Redux/action/locationAction';
@@ -20,14 +20,31 @@ const CustomSearch = ({locations, getLocations}) => {
         setOpen(!open)
     }
 
+    const useOutsideAlerter = ref => {
+        useEffect(() => {
+            const handleClickOutside = event => {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setOpen(false)
+                }
+            }
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, []);
+    }
+    
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
+
     return (
         <div>
             <div className="search-container">
                 <button className="search-btn"><Search/></button>
                 <input onClick={handleClick} type="search" className="search-feild"/>
             </div>
-            
-                <ul className={(open? "showListContainer" : "") + " listContainer"}>
+
+                <ul ref={wrapperRef} className={(open? "showListContainer" : "") + " listContainer"}>
                 {locations.map(loc => (
                     <LocItem
                         country={loc.country.fname}

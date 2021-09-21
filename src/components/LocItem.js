@@ -1,4 +1,3 @@
-import { Clear, Edit } from '@material-ui/icons'
 import React from 'react'
 import { connect } from 'react-redux'
 import { getLocation } from '../Redux/action/locationAction'
