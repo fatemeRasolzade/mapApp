@@ -1,9 +1,16 @@
+@font-face {
+    font-family: shabnam;
+    src: url("../fonts/Shabnam.eot"),
+            url("../fonts/Shabnam.ttf"),
+            url("../fonts/Shabnam.woff"),
+            url("../fonts/Shabnam.woff2")
+}
 *{
     margin: 0;
     padding: 0;
 }
 body{
-    background: pink;
+    font-family: shabnam;
 }
 .search-btn{
     background: transparent;
@@ -23,11 +30,34 @@ body{
     background: transparent;
     padding-right: 10px
 }
+.listContainer{
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    background: white;
+    border-radius: 5px;
+    padding: 0;
+    transition: all .5s ease-in-out;
+    z-index: -1000;
+    opacity: 0;
+    li{
+    list-style: none;
+    padding: .5rem 1rem;
+    width: 17rem;
+    display: flex;
+    justify-content: space-between;
+    transition: all .3s ease-in-out;
+    }
+    li:hover{
+        background: rgba(52, 152, 219, .5);
+        color: #ffffff;
+        cursor: pointer;
+    }
+}
+.showListContainer{
+    z-index: 1000;
+    opacity: 1;
+}
 input:focus{
     outline: none;
-}
-.edit-btn, .delete-btn{
-    background: transparent;
-    border: none;
-    margin: 0 .2rem;
 }

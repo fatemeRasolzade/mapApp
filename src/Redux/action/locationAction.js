@@ -6,7 +6,7 @@ export const getLocations = () => async (dispatch) => {
         // internal : filters.internal
     // }
 
-    return await axios(`http://172.16.1.56:8000/offices/office/`,{
+    return await axios(`${process.env.REACT_APP_SERVER}offices/office/`,{
         method:"POST",
         headers: {
             'Content-Type': 'application/json',

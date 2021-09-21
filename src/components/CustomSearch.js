@@ -26,8 +26,8 @@ const CustomSearch = ({locations, getLocations}) => {
                 <button className="search-btn"><Search/></button>
                 <input onClick={handleClick} type="search" className="search-feild"/>
             </div>
-            {open?
-                <ul className="loc-container position-absolute" style={{top: '5rem', right: '2rem', background:'white', borderRadius: '5px', padding: '0'}}>
+            
+                <ul className={(open? "showListContainer" : "") + " listContainer"}>
                 {locations.map(loc => (
                     <LocItem
                         country={loc.country.fname}
@@ -36,7 +36,7 @@ const CustomSearch = ({locations, getLocations}) => {
                     />
                 ))}
             </ul>
-            :null}
+            
         </div>
     )
 }
